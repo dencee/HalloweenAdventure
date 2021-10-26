@@ -2,6 +2,7 @@ public class Pumpkin {
   private int x;
   private int y;
   private int xSpeed = 0;
+  private int floorY;
   private boolean bounce = false;
   private int bounceHeight = 30;
   private int bounceSpeed = 0;
@@ -15,6 +16,7 @@ public class Pumpkin {
     this.x = x;
     this.y = height - 300;
     this.pumpkinColor = pumpkinColor;
+    this.floorY = height - 70;
   }
 
   public void setPumpkinColor( int newColor ){
@@ -56,8 +58,8 @@ public class Pumpkin {
     
     y += bounceSpeed;
 
-    if( this.y > height - 200 ) {
-      this.y = height - 200;
+    if( this.y > floorY - (pumpkinSizePixels/2) ) {
+      this.y = floorY - (pumpkinSizePixels/2);
 
       if( bounce ) {
         bounceSpeed = -bounceSpeed;
@@ -96,7 +98,7 @@ public class Pumpkin {
     triangle(x, y, x+10, y+20, x-10, y+20);
 
     // Draw shadow
-    ellipse(x, height - 15, (150 * y) / height, (10 * y) / height);
+    ellipse(x, floorY, (150 * y) / height, (10 * y) / height);
 
     // Draw mouth
     arc(x, y + 30, 80, 80, 0, PI, 0);

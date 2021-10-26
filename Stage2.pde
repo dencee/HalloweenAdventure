@@ -9,7 +9,7 @@ public class Stage2 {
     this.t = turtle;
     bg = loadImage("tunnel1.jpg");
     bg.resize(width, height);
-    
+
     spot = new Spotlight();
     ghost = new Ghost(100, 5, "left");
     pumpkin = new Pumpkin(width, #FFA500);
@@ -18,12 +18,17 @@ public class Stage2 {
     pumpkin.moveLeft(2);
   }
 
+  void initialize() {
+    t.y = height - 100;
+    t.stop();
+  }
+
   int draw() {
     background(bg);
     ghost.draw();
     pumpkin.draw();
     t.draw();
-    spot.draw();
+    //spot.draw();
     return 2;
   }
 

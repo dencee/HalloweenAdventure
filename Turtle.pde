@@ -80,9 +80,9 @@ public class Turtle {
         image(imagesL[frameIndex], x, y);
       }
     } else if ( moveState == Turtle.MOVE_KEYS ) {
-      //if ( x + stillR.width -  2 > leftLimit && x + stillR.width + 2 < rightLimit ) {
+      if ( x + xSpeed > leftLimit && x + xSpeed < rightLimit ) {
         this.x += this.xSpeed;
-      //}
+      }
       if ( direction.equals("right") ) {
         image(imagesR[frameIndex], x, y);
       } else {

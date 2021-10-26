@@ -25,6 +25,9 @@ class Stage1 {
     bg.resize(width, height);
     cage.resize(width/2, height/2);
     dirt.resize(120, 70);
+    
+    t.setLeftLimit(cageX + (t.stillL.width/2));
+    t.setRightLimit(cageX + cage.width - (t.stillR.width/2));
 
     warpList = new ArrayList<Warp>();
     for (int i=0; i<10; i++) {
@@ -65,7 +68,7 @@ class Stage1 {
     image(cage, cageX, cageY);
 
     if ( bgY < 6 * -height ) {
-      t.stop();
+      s2.initialize();
       return 2;
     }
     return 1;
